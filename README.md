@@ -1,173 +1,271 @@
-# 🐧 FileManager Utility Script (Assignment 1.2)
+# 🐧 Linux Basic Commands Assignment
 
-## 📌 Problem Statement
+## 📌 Overview
 
-Create a Bash utility script `FileManager.sh` that can perform various **directory and file operations** using basic Linux commands.
-
-⚠️ **Constraint:** Do NOT use `sed`. Only basic Linux commands are allowed.
+This assignment covers fundamental Linux commands including directory management, file operations, and content manipulation. It is designed to build hands-on experience with essential shell commands.
 
 ---
 
 ## 🎯 Objectives
 
-* Automate directory management
-* Perform file operations via shell script
-* Practice Linux CLI commands
-* Build reusable DevOps-style utility
+* Understand directory creation and deletion
+* Perform file operations without using editors
+* Practice text manipulation using CLI
+* Learn file viewing techniques
+* Explore file and directory listing options
 
 ---
 
-## 📂 Directory Operations
+## 🛠️ Tasks & Commands
 
-The script should support the following:
-
-* Create a directory
-* Delete a directory
-* List directory contents
-* List only files
-* List only directories
-* List all (files + directories)
-
-### ▶️ Example Commands
+### 1️⃣ Check Current Directory
 
 ```bash
-./FileManager.sh addDir /tmp dir1
-./FileManager.sh addDir /tmp dir2
-./FileManager.sh addDir /tmp dir3
-
-./FileManager.sh listFiles /tmp
-./FileManager.sh listDirs /tmp
-./FileManager.sh listAll /tmp
-
-./FileManager.sh deleteDir /tmp dir3
+pwd
 ```
 
-📸 **Add Screenshot Here:**
-`images/directory_operations.png`
+📸 *Add Screenshot:* `images/step1_pwd.png`
 
 ---
 
-## 📄 File Operations
-
-Extend the script to support file handling:
-
-* Create a file
-* Add content to file
-* Add content at the beginning of file
-* Show top N lines
-* Show last N lines
-* Show content at a specific line
-* Show content for a line range
-* Move file
-* Copy file
-* Clear file content
-* Delete file
-
----
-
-### ▶️ Example Commands
+### 2️⃣ Create Directory "linux"
 
 ```bash
-# Create file
-./FileManager.sh addFile /tmp/dir1 file1.txt
-./FileManager.sh addFile /tmp/dir1 file1.txt "Initial Content"
-
-# Add content
-./FileManager.sh addContentToFile /tmp/dir1 file1.txt "Additional Content"
-
-# Add content at beginning
-./FileManager.sh addContentToFileBegining /tmp/dir1 file1.txt "New First Line"
-
-# Show content
-./FileManager.sh showFileBeginingContent /tmp/dir1 file1.txt 5
-./FileManager.sh showFileEndContent /tmp/dir1 file1.txt 5
-
-# Specific line
-./FileManager.sh showFileContentAtLine /tmp/dir1 file1.txt 10
-
-# Line range
-./FileManager.sh showFileContentForLineRange /tmp/dir1 file1.txt 5 10
-
-# Move file
-./FileManager.sh moveFile /tmp/dir1/file1.txt /tmp/dir1/file2.txt
-./FileManager.sh moveFile /tmp/dir1/file2.txt /tmp/dir2/
-
-# Copy file
-./FileManager.sh copyFile /tmp/dir2/file2.txt /tmp/dir1/
-./FileManager.sh copyFile /tmp/dir1/file2.txt /tmp/dir1/file3.txt
-
-# Clear content
-./FileManager.sh clearFileContent /tmp/dir1 file3.txt
-
-# Delete file
-./FileManager.sh deleteFile /tmp/dir1 file2.txt
+mkdir linux
 ```
 
-📸 **Add Screenshot Here:**
-`images/file_operations.png`
+📸 *Add Screenshot:* `images/step2_mkdir_linux.png`
 
 ---
 
-## 🛠️ Commands Used (Concept)
-
-| Operation        | Command        |
-| ---------------- | -------------- |
-| Create Directory | `mkdir`        |
-| Delete Directory | `rm -r`        |
-| List Files       | `find -type f` |
-| List Directories | `find -type d` |
-| Create File      | `touch`        |
-| Add Content      | `echo >>`      |
-| View Top Lines   | `head`         |
-| View Last Lines  | `tail`         |
-| Specific Line    | `awk`          |
-| Move File        | `mv`           |
-| Copy File        | `cp`           |
-| Clear File       | `> file`       |
-
----
-
-## 🚀 How to Run
+### 3️⃣ Create "Assignment-01" inside "linux"
 
 ```bash
-chmod +x FileManager.sh
-./FileManager.sh <operation> <arguments>
+mkdir linux/Assignment-01
 ```
+
+📸 *Add Screenshot:* `images/step3_assignment_dir.png`
 
 ---
 
-## 📂 Project Structure
+### 4️⃣ Create Directory in /tmp Without Changing Directory
 
 ```bash
-file-manager/
-│── FileManager.sh
-│── README.md
-└── images/
-    ├── directory_operations.png
-    └── file_operations.png
+mkdir /tmp/dir1
 ```
+
+📸 *Add Screenshot:* `images/step4_tmp_dir1.png`
+
+---
+
+### 5️⃣ Create Nested Directory Structure (Single Command)
+
+```bash
+mkdir -p /tmp/dir1/dir2/dir3
+```
+
+#### 📂 Directory Structure
+
+```
+/tmp
+ └── dir1
+      └── dir2
+           └── dir3
+```
+
+📸 *Add Screenshot:* `images/step5_tree.png`
+
+---
+
+### 6️⃣ Delete "dir3"
+
+```bash
+rm -r /tmp/dir1/dir2/dir3
+```
+
+📸 *Add Screenshot:* `images/step6_delete_dir3.png`
+
+---
+
+### 7️⃣ Create Empty File (First Name)
+
+```bash
+touch /tmp/first-name
+```
+
+📸 *Add Screenshot:* `images/step7_touch.png`
+
+---
+
+### 8️⃣ Add First Line to File
+
+```bash
+echo "This is my first line" > /tmp/first-name
+```
+
+📸 *Add Screenshot:* `images/step8_add_line.png`
+
+---
+
+### 9️⃣ Append Additional Line (Without Overwriting)
+
+```bash
+echo "this is a additional content" >> /tmp/first-name
+```
+
+📸 *Add Screenshot:* `images/step9_append.png`
+
+---
+
+### 🔟 Create "last-name" File with Content
+
+```bash
+echo "last-name is my last name" > /tmp/last-name
+```
+
+📸 *Add Screenshot:* `images/step10_lastname.png`
+
+---
+
+### 1️⃣1️⃣ Add Line at Beginning of File
+
+```bash
+sed -i '1i this is line at the beginning' /tmp/last-name
+```
+
+📸 *Add Screenshot:* `images/step11_sed.png`
+
+---
+
+### 1️⃣2️⃣ Add Multiple Lines (8–10 Lines)
+
+```bash
+for i in {1..10}; do echo "Line $i" >> /tmp/last-name; done
+```
+
+📸 *Add Screenshot:* `images/step12_multiple_lines.png`
+
+---
+
+## 📖 File Viewing Commands
+
+### 🔹 Top 5 Lines
+
+```bash
+head -n 5 /tmp/last-name
+```
+
+### 🔹 Bottom 2 Lines
+
+```bash
+tail -n 2 /tmp/last-name
+```
+
+### 🔹 Only 6th Line
+
+```bash
+sed -n '6p' /tmp/last-name
+```
+
+### 🔹 Lines 3 to 8
+
+```bash
+sed -n '3,8p' /tmp/last-name
+```
+
+📸 *Add Screenshot:* `images/step13_view_commands.png`
+
+---
+
+## 📂 Listing /tmp Directory
+
+### 🔹 List All Files (Including Hidden)
+
+```bash
+ls -la /tmp
+```
+
+### 🔹 List Only Files
+
+```bash
+find /tmp -maxdepth 1 -type f
+```
+
+### 🔹 List Only Directories
+
+```bash
+find /tmp -maxdepth 1 -type d
+```
+
+📸 *Add Screenshot:* `images/step14_list.png`
+
+---
+
+## 📁 File Operations
+
+### 🔹 Copy "last-name" to dir2
+
+```bash
+cp /tmp/last-name /tmp/dir1/dir2/
+```
+
+### 🔹 Copy with New Name
+
+```bash
+cp /tmp/last-name /tmp/dir1/dir2/last-name.copy
+```
+
+### 🔹 Rename "first-name"
+
+```bash
+mv /tmp/first-name /tmp/new-first-name
+```
+
+### 🔹 Move "last-name" to dir1
+
+```bash
+mv /tmp/last-name /tmp/dir1/
+```
+
+📸 *Add Screenshot:* `images/step15_file_ops.png`
 
 ---
 
 ## 📌 Notes
 
-* Do not use `sed`
-* Handle invalid inputs in script
-* Ensure proper file/directory permissions
-* Use absolute paths for reliability
+* All operations are performed using CLI (no editors like vim/nano).
+* Ensure proper permissions when working in `/tmp`.
+* Use `tree /tmp` (if installed) for better visualization.
 
 ---
 
-## 🚀 Future Enhancements
+## 📁 Suggested Repository Structure
 
-* Add logging feature
-* Add help command (`--help`)
-* Add colored output
-* Add interactive menu
+```
+linux-assignment/
+│── README.md
+└── images/
+    ├── step1_pwd.png
+    ├── step2_mkdir_linux.png
+    ├── step3_assignment_dir.png
+    ├── step4_tmp_dir1.png
+    ├── step5_tree.png
+    ├── step6_delete_dir3.png
+    ├── step7_touch.png
+    ├── step8_add_line.png
+    ├── step9_append.png
+    ├── step10_lastname.png
+    ├── step11_sed.png
+    ├── step12_multiple_lines.png
+    ├── step13_view_commands.png
+    ├── step14_list.png
+    └── step15_file_ops.png
+```
 
 ---
 
-## 👨‍💻 Author
+## 🚀 Author
 
 **Your Name**
 
+---
