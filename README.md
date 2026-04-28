@@ -23,8 +23,10 @@ This assignment covers fundamental Linux commands including directory management
 ```bash
 pwd
 ```
+<img width="313" height="131" alt="image" src="https://github.com/user-attachments/assets/218a88d7-8be5-4a2f-941d-f545d6c8fb41" />
 
-📸 *Add Screenshot:* `images/step1_pwd.png`
+
+
 
 ---
 
